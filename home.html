@@ -80,24 +80,23 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
      </center>
    </section>
 
+
     <section class="slide">
       <h2>Orcasound organization</h2>
-
       <h3>A cooperative of education/outreach NGOs, researchers, & citizen scientists</h3>
-
 <table>
 <col style="width:50%">
 <col style="width:50%">
 <tr>
 <td>
       <ul>
-          <li> Up to 5 locations in the U.S., historically
+	  <li> 15 years of live-streaming to listening community
+          <li> Up to 5 hydrophone locations in the U.S.
           <li> 13 NGO members as of fall, 2018
           <li> 3 educational exhibits using real-time audio streams
-          <li> 10s of dedicated listeners
+          <li> 10s of dedicated, year-round listeners
 	  <li> 100s of listeners during "viral" events
         </ul>
-
       <b>You can <a href="http://www.orcasound.net/join/">join Orcasound</a>, too! Just read and e-sign the <a href="https://docs.google.com/document/d/1OdKOICgPNHy7CkaHjzWMztH_zNir4UlbZbOdKtyRwI0/edit">MOA</a>.</b>
 </td>
 <td>
@@ -109,7 +108,6 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
 </tr>
 </table>
     </section>
-
 
 
     <section class="slide">
@@ -147,11 +145,11 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
       	<p>Thanks to all the backers of the <a href="https://www.kickstarter.com/projects/sveirs/orcasound-listen-for-whales">2017 Kickstarter</a>, plus our app key developers/designers to date:<br>
       Paul Cretu, Skander Mzali, Steve Hicks, Tyler Crisafulli, Nóra Mészáros, Liam Reese, and participants in the 2018 <a href="https://www.democracylab.org/index/?section=AboutProject&id=81">Civic Hackathon</a></p>
       <center>
-        <a href="http://dev.orcasound.net">Beta-test at dev.orcasound.net!</a><p>
-          Public release of Orcasound app in early October at <a href="http://live.orcasound.net">live.orcasound.net</a>
+          Public release of Orcasound app <a href="http://live.orcasound.net">live.orcasound.net</a>
         </center>
       </div>
     </section>
+
 
     <section class="slide">
       <h2>New locations</h2>
@@ -164,13 +162,13 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
               <ul>
                  <li>Extant: Seattle Aquarium <a href="http://orcasound.net/sakiosk/">listening kiosk</a>; Port Townsend Marine Science Center <a href="http://listen.orcasound.net">listening station</a> built with Killer Whale Tales and NOAA support</li>
                  <li>2018: Langley Whale Center <a href="">Ocean Listening Exhibit</a>; Lime Kiln Visitor Center audio/video kiosk (in progress)</li> 
-                 <li>2019: Integration of new live streaming tech and citizen science into extant educational nodes; </li>
+                 <li>2019: Integration of new live streaming tech and citizen science into extant educational nodes</li>
               </ul>
 <h4>Hydrophone nodes</h4>
               <ul>
-                <li>Current: Orcasound Lab</li>
-                <li>Imminent: Bush Point; Port Townsend; Clallum Bay</li>
-                <li>Planned in 2019: Eagle Point; MAST Center; Neah Bay?
+                <li>Current: Orcasound Lab & Bush Point</li>
+                <li>Imminent: Port Townsend; Clallum Bay</li>
+                <li>Planned in 2019: Eagle Point; south Puget Sound 
               </ul>
             </td> 
             <td>
@@ -179,6 +177,7 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
             </tr>
           </table>
         </section>
+
 
     <section class="slide">
       <h2>New node hardware</h2>
@@ -205,6 +204,7 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
 </table>
     </section>
 
+
     <section class="slide">
       <h2>New node software</h2>
 <h3>Can we stream using open-source software?</h3>
@@ -224,14 +224,27 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
 <ul>
 <li>Amazon’s Simple Storage Services (S3) -- cost-effective data storage, public access, and automated management</li>
 <li>Upload script currently bash calling s3fs, but new python script will be optimized for live streaming and power/Internet outages</li>
-<li>FLAC files are currently 30 seconds long</li>
+<li>FLAC files are currently 10 seconds long</li>
 </ul>
     </section>
+
+
+    <section class="slide">
+      <h2>Orcasound app</h2>
+	<h3>Can we make it really easy to listen (with a web app)?</h3>
+	<p>Heroku-hosted web site implemented in Phoenix/Elixir</p>
+        <img src="content/app-w-activity.png" height="500">
+        <img src="content/app-performance.png" height="300">
+	<h4><a href="https://github.com/orcasound">Git repositories</a></h4>
+    </section>
+
 
     <section class="slide">
       <h2>Machine learning challenges (Nov 17 'Hack to give thanks')</h2>
       <ul>
-	<li>Bring citizen scientist real-time detections and classifications into live spectrogram display like <a href="https://birdnet.cornell.edu/live/">Cornell's real-time bird call classifier
+	<li>Beta-test "I hear something" button
+	<li>Build administrative interface to human detections 
+	<li>Develop spectrogram display like <a href="https://birdnet.cornell.edu/live/">Cornell's real-time bird call classifier</a>, but with HLS streamed data
         <li>Build training data set of killer whale signals for machine learning</li>
         <ol>
           <li>Learn from <a href="http://www.orcasound.net/FordOsborneVocabulary/_SouthernVocabularyTable.html">expert's catalog of signals</a> (~40 types of "pulsed calls")</li>
@@ -239,20 +252,18 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
         </ol>
         <li>Discuss and implement architecture for machine learning</li>
         <ol>
-          <li>Review existing data architecture and flow</li>
-          <li>Adjust AWS security and set up hackathon participant access</li>
           <li>Access FLAC audio data in AWS S3 buckets</li>
           <li>Discuss and access EC2 Linux instance and other relevant services (e.g. Cloud9, Lambda?)</li>
-          <li>Build out <a href="https://github.com/orcasound/orcadata">Orcadata Git repository</a>: a docker-based Python analysis environment, or ??</li>
+          <li>Contribute to <a href="https://github.com/orcasound/orcadata">Orcadata Git repository</a>: docker-based Python analysis environment, or ??</li>
         </ol>
         <li><b>Integrate machine learning approaches and products into Orcasound app</a></li>
         <ol>
           <li>Orientation to the app, audio data scheme, and <a href="https://github.com/orcasound/orcasite">Orcasite Git repository</a> (Backend is an Elixir app using the Phoenix framework. The Phoenix app serves a React app.)</li>
-          <li>Discuss how algorithmic and human detection (Activity button presses) and classification could work synergistically</li>
           <li>Implement integration, including visualization and notifications (moderated or automated)</li>
         </ol>
       </ul>
     </section>
+
 
     <section class="slide">
       <h2>Learning library assets: Ford-Osborne call catalog</h2>
@@ -268,28 +279,22 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
 	<h3>Next tools: Bigg's/transient library; common local fish sounds?</h3>
     </section>
 
+
     <section class="slide">
       <h2>Historic DC effort: WhoListener</h2>
       <img src="content/wholistener.png">
 	<p>Admiralty Inlet study (unpublished): of 22 SRKW transits, humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime)</P>
     </section>
 
+
     <section class="slide">
       <h2>Current DC effort: Zorbita</h2>
       <img src="content/zorbita.png">
     </section>
 
-    <section class="slide">
-      <h2>Questions?</h2>
-    </section>
 
     <section class="slide">
-      <h2>Orcasound app</h2>
-	<h3>Can we make it really easy to listen (with a web app)?</h3>
-	<p>Heroku-hosted web site implemented in Phoenix/Elixir</p>
-        <img src="content/app-w-activity.png" height="500">
-        <img src="content/app-performance.png" height="300">
-	<h4><a href="https://github.com/orcasound">Git repositories</a></h4>
+      <h2>Questions?</h2>
     </section>
 
 
