@@ -115,52 +115,54 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
 
 <section class="slide">
 <h2>Orcasound's automated detection & classification</h2>
-        <img src="content/wholistener.png">
-	<p>Admiralty Inlet study (unpublished): of 22 SRKW transits, humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime)</P>
+<table>
+<col style="width:40%">
+<col style="width:40%">
+<tr>
+<td><img src="content/wholistener.png"><br>
+</td>
+<td>
         <img src="content/zorbita.png">
+</td>
+</tr>
+</table>
+<center>
+<p>Admiralty Inlet study (unpublished) -- Of 22 SRKW transits during local daytime, <br>
+humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime)</P>
+</center>
 </section>
 
 
-    <section class="slide">
-      <h2>Complaints lead to new goals & vision</h2>
-
+<section class="slide">
+<h2>Complaints lead to new goals & vision</h2>
 <h4>Complaints:</h4>
 <ol>
-<li> My new phone won't play the stream. (Shoutcast, Icecast)</li>
-<li> All the streaming seats are taken, so I can't listen.</li>
-<li> There is no continuous archived recording (only short clips from algorithms with amplitude or tonal triggers).</li>
-<li> My hard drive (still) filled up, or my hydrophone system broke.</li>
+<li> Device/player incompatible with stream (e.g. Shoutcast, Icecast)</li>
+<li> Limited listening "seats"</li>
+<li> No continuous archived recording (only short clips from algorithms with amplitude or tonal triggers)</li>
+<li> Hard drive and hydrophone hydrophone maintenance</li>
 <li> Inconistent funding</li>
 </ol>
-
 <h4>Goals:</h4>
 <ol>
 <li> Make it easy for unlimited citizen scientists to listen for whales.</li>
 <li> Reduce cost & complexity of adding cabled hydrophone nodes.</li>
 <li> Stream and archive data in the cloud to promote synergy between human and machine learning.</li>
 </ol>
-
-<h3>Vision: Open source software, open data access, real-time engagement of citizen scientists and cloud-computing</h3> 
-
-<center>
-<h4>For real-time audio data, <br>what role shall humans play (vs or with) machines?</h4>
-</center>
-
-
 </section>
 
 
    <section class="slide">
      <h2>Orcasound 2.0: node hardware/software and a web app in 2018</h2>
-     <table>
-       <tr align="center">
-	<col style="width:33%">
-	<col style="width:33%">
-	<col style="width:33%">
-        <td><img src="content/node-box.png" height="400"></td>
-        <td><img src="content/app-w-activity.png" height="400"></td>
-      </tr>
-    </table>
+	<img src="content/iPhone+coffee-small.png" height="300" align="right">
+	<h4>Vision:<br>
+        <ul>
+	<li>open source software
+	<li>open data access
+	<li>real-time engagement of citizen scientists
+	<li>cloud-computing
+	</ul>
+	</h4> 
     <div>
       	<p>Thanks to <a href="https://www.kickstarter.com/projects/sveirs/orcasound-listen-for-whales">2017 Kickstarter</a> backers, plus key web app developers/designers to date:<br>
       Paul Cretu, Skander Mzali, Steve Hicks, Tyler Crisafulli, Nóra Mészáros, Liam Reese, and participants in the October 2018 <a href="https://www.democracylab.org/index/?section=AboutProject&id=81">Civic Hackathon</a></p>
@@ -229,51 +231,35 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
       <h2>Orcasound app</h2>
 	<h3>Can we make it really easy to listen (with a web app)?</h3>
 	<p>Heroku-hosted web site implemented in Phoenix/Elixir</p>
-        <img src="content/app-w-activity.png" height="500">
-        <img src="content/app-performance.png" height="300">
+	<img src="content/screenshot-live.png" height="500">
 	<h4><a href="https://github.com/orcasound">Git repositories</a></h4>
     </section>
 
+    <section class="slide">
+      <h2>Orcasound app</h2>
+	<h3>Yes, it's getting much easier to listen on any device!</h3>
+	<b>50% of beta and live users report "It just works!"</b><p>
+	<b>Failure or frustrated reports down from 32% in beta, to <25% in public live site</b>
+        <!-- <img src="content/app-performance-beta.png" height="300"> -->
+        <!-- <img src="content/app-performance-live50.png" height="300"> -->
+        <img src="content/app-device-pie.png" height="450">
+	<h4><a href="https://github.com/orcasound">Git repositories</a></h4>
+    </section>
 
     <section class="slide">
       <h2>Machine learning challenges (Nov 17 'Hack to give thanks')</h2>
       <ul>
 	<li>Beta-test "I hear something" button
 	<li>Build administrative interface to human detections 
-	<li>Develop spectrogram display like <a href="https://birdnet.cornell.edu/live/">Cornell's real-time bird call classifier</a>, but with HLS streamed data
+	<li>Develop spectrogram visualization of live HLS stream 
         <li>Build training data set of killer whale signals for machine learning</li>
         <ol>
-          <li>Learn from <a href="http://www.orcasound.net/FordOsborneVocabulary/_SouthernVocabularyTable.html">expert's catalog of signals</a> (~40 types of "pulsed calls")</li>
+          <li>Organize <a href="http://www.orcasound.net/FordOsborneVocabulary/_SouthernVocabularyTable.html">expert's catalog of signals</a> (~40 types of "pulsed calls")</li>
           <li>Clip isolated, clear calls from <a href="http://orcasound.net/data/product/SRKW/greatest-hits/">continuous recordings of wild killer whales</a></li>
         </ol>
-        <li>Discuss and implement architecture for machine learning</li>
-        <ol>
-          <li>Access FLAC audio data in AWS S3 buckets</li>
-          <li>Discuss and access EC2 Linux instance and other relevant services (e.g. Cloud9, Lambda?)</li>
-          <li>Contribute to <a href="https://github.com/orcasound/orcadata">Orcadata Git repository</a>: docker-based Python analysis environment, or ??</li>
-        </ol>
-        <li><b>Integrate machine learning approaches and products into Orcasound app</a></li>
-        <ol>
-          <li>Orientation to the app, audio data scheme, and <a href="https://github.com/orcasound/orcasite">Orcasite Git repository</a> (Backend is an Elixir app using the Phoenix framework. The Phoenix app serves a React app.)</li>
-          <li>Implement integration, including visualization and notifications (moderated or automated)</li>
-        </ol>
       </ul>
     </section>
 
-
-    <section class="slide">
-      <h2>Learning library assets: Ford-Osborne call catalog</h2>
-      <ul>
-        <li>~2004: Colorado College students built <a href="http://www.orcasound.net/FordOsborneVocabulary/_SouthernVocabularyTable.html">old version</a></li>
-        <li>2018: Civic Hackathon particpants building new version using:
-        <ol>
-          <li>flac files made from original tape recordings (.wav files created by CC project?)</li>
-          <li>ffmpeg to convert audio files (flac -> ogg + mp3)</li>
-          <li>Python to generate spectrograms from audio data (ideally flac)</li>
-        </ol>
-      </ul>
-	<h3>Next tools: Bigg's/transient library; common local fish sounds?</h3>
-    </section>
 
 
     <section class="slide">
@@ -304,20 +290,34 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
     </section>
 
     <section class="slide">
-      <h2>Human classifier precedent: <a href="">Cornell's real-time bird call classifier</a><h2>
+      <h2>Human classifier precedent: <a href="http://batdetective.org">Zooniverse classify tool for Bat Detective</a><h2>
       <img src="content/screenshot-batdetective.png">
     </section>
 
     <section class="slide">
       <h2>Orcsound's road map to detection, classification, & annotation</h2>
-      <img src="content/screenshot-bushpoint.png">
-	Show pie chart of our users (2/3 phone?)
+      <img src="content/screenshot-dev-phone.png">
     </section>
+
 
     <section class="slide">
       <h2>Questions?</h2>
     </section>
 
+
+    <section class="slide">
+      <h2>Learning library assets: Ford-Osborne call catalog</h2>
+      <ul>
+        <li>~2004: Colorado College students built <a href="http://www.orcasound.net/FordOsborneVocabulary/_SouthernVocabularyTable.html">old version</a></li>
+        <li>2018: Civic Hackathon particpants building new version using:
+        <ol>
+          <li>flac files made from original tape recordings (.wav files created by CC project?)</li>
+          <li>ffmpeg to convert audio files (flac -> ogg + mp3)</li>
+          <li>Python to generate spectrograms from audio data (ideally flac)</li>
+        </ol>
+      </ul>
+	<h3>Next tools: Bigg's/transient library; common local fish sounds?</h3>
+    </section>
 
 
     <!-- End slides. -->
