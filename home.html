@@ -46,8 +46,8 @@ td
 
     <section class="slide">
      <center>
-      <h2>Orcasound app:</h2>
-	<h4>an open-source solution for streaming live ocean sound<br>to citizen scientists and cloud-based algorithms</h4>
+      <h2>Orcasound app: live.orcasound.net</h2>
+	<h4>An open-source solution for streaming live ocean sound<br>to citizen scientists and cloud-based algorithms</h4>
       <img src="content/orca-ferry.png" width="500">
 
 <b>
@@ -91,7 +91,7 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
       <h3>A cooperative of education/outreach NGOs, researchers, & citizen scientists</h3>
       <ul>
 	  <li> 15 years of live-streaming to listening community
-          <li> Up to 5 hydrophone nodes in the U.S.
+          <li> Up to 5 cabled hydrophone nodes in the U.S.
           <li> 13 NGO members as of fall, 2018
           <li> 4 educational nodes with physical exhibits using live streams & recordings
           <li> 10s of dedicated, year-round listeners
@@ -139,13 +139,12 @@ humans detect 45%, Wholistener 64%, combined 77%.</P>
 <li> Device/player incompatible with stream (e.g. Shoutcast, Icecast)</li>
 <li> Limited listening "seats"</li>
 <li> No continuous archived recording (only short clips from algorithms with amplitude or tonal triggers)</li>
-<li> Hard drive and hydrophone hydrophone maintenance</li>
-<li> Inconistent funding</li>
+<li> Hard drive and hydrophone maintenance</li>
 </ol>
 <h4>Goals:</h4>
 <ol>
 <li> Make it easy for unlimited citizen scientists to listen for whales.</li>
-<li> Reduce cost & complexity of adding cabled hydrophone nodes.</li>
+<li> Reduce cost & complexity of adding hydrophone nodes.</li>
 <li> Stream and archive data in the cloud to promote synergy between human and machine learning.</li>
 </ol>
 </section>
@@ -166,7 +165,7 @@ humans detect 45%, Wholistener 64%, combined 77%.</P>
       	<p>Thanks to <a href="https://www.kickstarter.com/projects/sveirs/orcasound-listen-for-whales">2017 Kickstarter</a> backers, plus key web app developers/designers to date:<br>
       Paul Cretu, Skander Mzali, Steve Hicks, Tyler Crisafulli, Nóra Mészáros, Liam Reese, and participants in the October 2018 <a href="https://www.democracylab.org/index/?section=AboutProject&id=81">Civic Hackathon</a></p>
       <center>
-          Public release of Orcasound app Nov 1, 2018! <a href="http://live.orcasound.net">live.orcasound.net</a>
+          Public release of Orcasound app Nov 1, 2018!<br><a href="http://live.orcasound.net">live.orcasound.net</a>
         </center>
       </div>
     </section>
@@ -204,27 +203,17 @@ humans detect 45%, Wholistener 64%, combined 77%.</P>
 
 <ul>
 <li>Linux (Raspian), Docker (container), <a href="dataplicity.com">Dataplicity</a> (remote access), and soon Resin.io (for deployment)
-<li>ffmpeg to encode audio data (compressed stream and/or lossless archive)
-<li>HTTP-based protocols: 
+<li><b>ffmpeg</b> -- encodes audio data (compressed stream and/or lossless archive) in two formats:
 <ul>
-<li>HLS (<a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming">HTTP Live Streaming</a>, aimed at iOS/Safari) and </li>
-<li>MPEG-DASH (<a href="https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP">Dynamic Adaptive Streaming over HTTP</a>, for everything else)</li>
-</ul>
-<li>Current solution:
-  <ul>
-  <li>Directory name is stream start Unix timestamp</li>
-  <li>Compressed, lossy HLS segments streamed to a video.js player</li>
-  <li>Compressed, lossless FLAC format for archive</li>
-  <li>Long-term dream is FLAC within DASH</li>
-  </ul>
+<li>Compressed & lossy: HLS segments (<a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming">HTTP Live Streaming</a></li>
+<li>Compressed, lossless: FLAC (<a href="https://xiph.org/flac/">Free Lossless Audio Codec</a></li>
 </ul>
 
 <h3>How do we archive data in the cloud?</h3>
 
 <ul>
-<li>Amazon’s Simple Storage Services (S3) -- cost-effective data storage, public access, and automated management</li>
-<li>Upload script currently bash calling s3fs, but new python script will be optimized for live streaming and power/Internet outages</li>
-<li>FLAC files are currently 10 seconds long, with timestamp in filename</li>
+<li><b>s3fs</b> -- uploads data files and "manifest" to Amazon’s Simple Storage Services (S3)</li>
+<li>FLAC filenames contain UTC timestamp</li>
 </ul>
     </section>
 
@@ -232,32 +221,37 @@ humans detect 45%, Wholistener 64%, combined 77%.</P>
     <section class="slide">
       <h2>Orcasound app</h2>
 	<h3>Can we make it really easy to listen (with a web app)?</h3>
-	<p>Heroku-hosted web site implemented in Phoenix/Elixir</p>
-	<img src="content/screenshot-live.png" height="500">
-	<h4><a href="https://github.com/orcasound">Git repositories</a></h4>
+	<center>
+	<p>Heroku-hosted web site implemented in Phoenix/Elixir: <a href="http://live.orcasound.net">live.orcasound.net</a></p>
+        </center>
+	<img src="content/screenshot-live.png" height="500"><p>
+	<a href="https://github.com/orcasound/orcasite">Orcasite Github repository</a>
     </section>
 
 
     <section class="slide">
       <h2>Orcasound app</h2>
 	<h3>Yes, it's getting much easier to listen on any device!</h3>
+<center>
 	<b>50% of beta and live users report "It just works!"</b><p>
-	<b>Failure or frustrated reports down from 32% in beta, to <25% in public live site</b>
-        <!-- <img src="content/app-performance-beta.png" height="300"> -->
-        <!-- <img src="content/app-performance-live50.png" height="300"> -->
+	<b>Failure or frustrated reports down from 32% in beta, to <25% in public live site</b><p>
+
         <img src="content/app-device-pie.png" height="450">
-	<h4><a href="https://github.com/orcasound">Git repositories</a></h4>
+	<h4>Show of hands: did you hear Haro Strait? (Yes? No?)</h4>
+</center>
     </section>
 
     
     <section class="slide">
-	<h2>Global reach: first 4 days after launch of live.orcasound.net</h2>
+	<h2>Global reach</h2>
+	<b>Unique visitors per country during 4 days after launch of live.orcasound.net</b>
 	<img src="content/analytics-global.png" height="500">
     </section>
 
 
     <section class="slide">
-	<h2>User geography in WA: first 4 days after launch</h2>
+	<h2>Local reach</h2>
+	<b>Unique visitors geography in WA during 4 days after launch</b>
 	<img src="content/analytics-WA.png" height="500">
     </section>
  
@@ -269,8 +263,8 @@ humans detect 45%, Wholistener 64%, combined 77%.</P>
 
 
     <section class="slide">
-	<img src="content/screenshot-dev-phone.png" align="right">
 	<h3>Orcasound app features under development</h3>
+	<img src="content/screenshot-dev-phone.png" width="450" align="right">
       <ul>
 	<li>Beta-test "I hear something" button
 	<li>Build administrative interface to human detections 
@@ -281,7 +275,7 @@ humans detect 45%, Wholistener 64%, combined 77%.</P>
           <li>Clip isolated, clear calls from <a href="http://orcasound.net/data/product/SRKW/greatest-hits/">continuous recordings of wild killer whales</a></li>
         </ol>
       </ul>
-	<h3>These will be foci for the Nov 17 "Hack to Give Thanks"</h3>
+	<h3>These will be foci for the Nov 17 "Hack to Give Thanks" event in Seattle...</h3>
     </section>
 
 
@@ -289,33 +283,33 @@ humans detect 45%, Wholistener 64%, combined 77%.</P>
     <section class="slide">
       <h2>Live stream precedent: OrcaLab's <a href="http://www.orca-live.net/community/index.html">OrcaLive</a></h2>
 	<p>Real-time inspiration: ~5 decades of live-stream pioneering by Paul Spong and Helena Symonds.</p>
-        <img src="content/screenshot-orcalive.png">
+        <img src="content/screenshot-orcalive.png" height="550">
 	<a href="http://www.orca-live.net/orca.asx">Live-stream</a>
     </section>
 
    <section class="slide">
       <h2>Annotation precedent: <a href="http://orchive.cs.uvic.ca/">Orchive</a>
-      <img src="content/screenshot-orchive.png">
+      <img src="content/screenshot-orchive.png" height="500">
     </section>
 
     <section class="slide">
       <h2>Live stream precedent: <a href="https://www.mbari.org/deep-sea-sound-recordings-live-stream/">Mars Mooring</a> via YouTube<h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZrdSO-29DTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wFQWNNV6eTE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
 
     <section class="slide">
       <h2>Live stream precedent: <a href="http://www.listentothedeep.com">Listen to the Deep<h2>
-      <img src="content/screenshot-lido.png">
+      <img src="content/screenshot-lido.png" width="750">
     </section>
 
     <section class="slide">
       <h2>Live stream precedent: <a href="https://birdnet.cornell.edu/live/">Cornell's real-time bird call classifier</a><h2>
-      <img src="content/screenshot-birdnet.png">
+      <img src="content/screenshot-birdnet.png" width="750">
     </section>
 
     <section class="slide">
       <h2>Human classifier precedent: <a href="http://batdetective.org">Zooniverse classify tool for Bat Detective</a><h2>
-      <img src="content/screenshot-batdetective.png">
+      <img src="content/screenshot-batdetective.png" width="600">
     </section>
 
     <section class="slide">
@@ -326,21 +320,6 @@ humans detect 45%, Wholistener 64%, combined 77%.</P>
 
     <section class="slide">
       <h2>Questions?</h2>
-    </section>
-
-
-    <section class="slide">
-      <h2>Learning library assets: Ford-Osborne call catalog</h2>
-      <ul>
-        <li>~2004: Colorado College students built <a href="http://www.orcasound.net/FordOsborneVocabulary/_SouthernVocabularyTable.html">old version</a></li>
-        <li>2018: Civic Hackathon particpants building new version using:
-        <ol>
-          <li>FLAC files made from original tape recordings (.wav files created by CC project?)</li>
-          <li>ffmpeg to convert audio files (flac -> ogg + mp3)</li>
-          <li>Python to generate spectrograms from audio data (ideally flac)</li>
-        </ol>
-      </ul>
-	<h3>Next tools: Bigg's/transient library; common local fish sounds?</h3>
     </section>
 
 
