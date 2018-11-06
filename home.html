@@ -113,7 +113,7 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
 
 
 <section class="slide">
-<h2>Orcasound's automated detection & classification</h2>
+<h2>Orcasound's (historic) automated detection & classification</h2>
 <table>
 <col style="width:40%">
 <col style="width:40%">
@@ -127,7 +127,7 @@ Code & collaboration:<br> <a href="https://github.com/orcasound">Github</a> | <a
 </table>
 <center>
 <p>Admiralty Inlet study (unpublished) -- Of 22 SRKW transits during local daytime, <br>
-humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime)</P>
+humans detect 45%, Wholistener 64%, combined 77%.</P>
 </center>
 </section>
 
@@ -188,9 +188,9 @@ humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime
                 <li>($ 35) Audio cables and a waterproof box installed near the shoreline</li>
                 <li>($ 75) Power over Ethernet -- cable+splitters from the box to a 24-hour UPS and Internet router</li>
               </ul>
-<h4>60% of cost is hydrophones! (>75% for minimal research-grade)</h4>
+<h4>60% of cost is hydrophones! (>75% for least expensive research-grade)</h4>
 
-<p>To build your own node, see this <a href="http://www.orcasound.net/2018/04/27/orcasounds-new-live-audio-solution-from-hydrophone-to-headphone-with-a-raspberry-pi-computer-and-hls-dash-streaming-software/">detailed post about Orcasound's new hardware and software...</a>
+<p><a href="http://www.orcasound.net/2018/04/27/orcasounds-new-live-audio-solution-from-hydrophone-to-headphone-with-a-raspberry-pi-computer-and-hls-dash-streaming-software/">DIY: How to build your own hydrophone node!</a>
 </td>
         <td><img src="content/node-box.png" height="400"></td>
 </tr>
@@ -203,7 +203,8 @@ humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime
 <h3>Can we stream using open-source software?</h3>
 
 <ul>
-<li> Docker container (for streaming and logging), <a href="dataplicity.com">Dataplicity</a> for remote access (soon Resin.io)
+<li>Linux (Raspian)
+<li>Docker container (for streaming and logging), <a href="dataplicity.com">Dataplicity</a> for remote access (soon Resin.io)
 <li>ffmpeg and/or test-engine-engine-tools -- encode audio data (compressed stream and/or lossless archive)
 <li>HTTP-based protocols: 
 <ul>
@@ -212,17 +213,19 @@ humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime
 </ul>
 <li>Current solution:
   <ul>
-  <li> Compressed, lossy HLS segments streamed to a video.js player</li>
-  <li> Compressed, lossless FLAC format for the archive (but long-term dream is FLAC within DASH)</li>
+  <li>Timestamped directory</li>
+  <li>Compressed, lossy HLS segments streamed to a video.js player</li>
+  <li>Compressed, lossless FLAC format for archive</li>
+  <li>Long-term dream is FLAC within DASH</li>
   </ul>
 </ul>
 
-<h3>And archive data in the cloud?</h3>
+<h3>How do we archive data in the cloud?</h3>
 
 <ul>
 <li>Amazon’s Simple Storage Services (S3) -- cost-effective data storage, public access, and automated management</li>
 <li>Upload script currently bash calling s3fs, but new python script will be optimized for live streaming and power/Internet outages</li>
-<li>FLAC files are currently 10 seconds long</li>
+<li>FLAC files are currently 10 seconds long, with timestamp in filename</li>
 </ul>
     </section>
 
@@ -247,7 +250,10 @@ humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime
     </section>
 
     <section class="slide">
-      <h2>Machine learning challenges<br> (Nov 17 'Hack to give thanks')</h2>
+      <h2>How can we best set the stage for machine learning?<br>
+	<img src="content/hydrophone-headphone-roadmap.png">
+
+	<h3>Orcasound app features under development</h3>
       <ul>
 	<li>Beta-test "I hear something" button
 	<li>Build administrative interface to human detections 
@@ -258,6 +264,7 @@ humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime
           <li>Clip isolated, clear calls from <a href="http://orcasound.net/data/product/SRKW/greatest-hits/">continuous recordings of wild killer whales</a></li>
         </ol>
       </ul>
+	<h3>These will be foci for the Nov 17 'Hack to give thanks</h3>
     </section>
 
 
@@ -297,6 +304,7 @@ humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime
     <section class="slide">
       <h2>Orcsound's road map to detection, classification, & annotation</h2>
       <img src="content/screenshot-dev-phone.png" height="500">
+      <img src="content/hydrophone-headphone-roadmap.png">
     </section>
 
 
@@ -311,7 +319,7 @@ humans detect 45%, Wholistener 64%, combined 77%. (71/79/93 during local daytime
         <li>~2004: Colorado College students built <a href="http://www.orcasound.net/FordOsborneVocabulary/_SouthernVocabularyTable.html">old version</a></li>
         <li>2018: Civic Hackathon particpants building new version using:
         <ol>
-          <li>flac files made from original tape recordings (.wav files created by CC project?)</li>
+          <li>FLAC files made from original tape recordings (.wav files created by CC project?)</li>
           <li>ffmpeg to convert audio files (flac -> ogg + mp3)</li>
           <li>Python to generate spectrograms from audio data (ideally flac)</li>
         </ol>
